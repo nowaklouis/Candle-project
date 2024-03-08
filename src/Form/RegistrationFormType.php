@@ -25,29 +25,29 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'En cochant cette case vous validé les termes du service blabla',
                     ]),
                 ],
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Les mots de passes doivent être identiques',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'first_options'  => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'rentrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 8,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Vôtre mot de passe doit contenir plus de 8 caractères',
                         'max' => 4096,
                     ]),
                     new Regex([
                         'pattern' => '/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/',
-                        'message' => 'Your password must contain at least one uppercase letter, one lowercase letter, one number and one special character.',
+                        'message' => 'Vôtre mot de passe ne doit pas contenir de caractère spécial',
                     ]),
                 ],
             ]);
