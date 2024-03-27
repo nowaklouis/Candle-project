@@ -20,8 +20,11 @@ class HomeController extends AbstractController
     {
         $products = $this->entity->getRepository(Product::class)->findAll();
 
+        $sliderItems = $this->entity->getRepository(Product::class)->lastThree();
+
         return $this->render('home/index.html.twig', [
             'products' => $products,
+            'sliderItems' => $sliderItems,
         ]);
     }
 }

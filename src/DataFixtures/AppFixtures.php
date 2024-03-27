@@ -99,11 +99,14 @@ class AppFixtures extends Fixture
 
                     $comment->setTitle($faker->words(3, true))
                         ->setContent($faker->paragraphs(3, true))
-                        ->setUserComment($user)
+                        ->setUserComment($admin)
                         ->setProduct($product);
+
+                    $manager->persist($comment);
                 }
             }
         }
+
         $manager->flush();
     }
 }
