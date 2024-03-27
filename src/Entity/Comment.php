@@ -20,9 +20,6 @@ class Comment
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
@@ -33,6 +30,11 @@ class Comment
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -59,18 +61,6 @@ class Comment
     public function setContent(string $content): static
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
 
         return $this;
     }

@@ -50,8 +50,12 @@ class Product
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'product', orphanRemoval: true)]
     private Collection $comments;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $productAt = null;
+
     public function __construct()
     {
+        $this->created_at = new \DateTimeImmutable();
         $this->comments = new ArrayCollection();
     }
 
@@ -206,6 +210,18 @@ class Product
                 $comment->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProductAt(): ?\DateTimeInterface
+    {
+        return $this->productAt;
+    }
+
+    public function setProductAt(\DateTimeInterface $productAt): static
+    {
+        $this->productAt = $productAt;
 
         return $this;
     }
