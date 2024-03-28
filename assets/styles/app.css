@@ -1,6 +1,7 @@
 body {
   height: 100%;
   margin: 0;
+  overflow-x: hidden;
   background-size: cover;
   background-attachment: fixed;
   background-image: linear-gradient(
@@ -20,9 +21,17 @@ body {
   );
 }
 
+.navbar {
+  opacity: 0.8; /* Réduire l'opacité de la navbar */
+}
+
+.navbar * {
+  opacity: 1; /* Annuler l'opacité pour les éléments internes */
+}
+
 .carousel {
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
   position: relative;
 }
@@ -38,12 +47,16 @@ body {
   object-fit: cover;
 }
 
+.carousel .list .item .des {
+  width: 500px;
+}
+
 .carousel .list .item .content {
   position: absolute;
-  top: 20%;
+  top: 10%;
   width: 1140px;
   max-width: 80%;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   padding-right: 30%;
   box-sizing: 30%;
@@ -56,23 +69,15 @@ body {
   letter-spacing: 10px;
 }
 
-.carousel .list .item .content .title,
-.carousel .list .item .content .topic {
+.carousel .list .item .content .title {
   font-weight: bold;
   font-size: 5em;
   list-style: 1.3em;
 }
 
-.carousel .list .item .content .topic {
-  color: #c47917;
-}
-
 .carousel .list .item .content .buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 130px);
-  grid-template-rows: 40px;
-  gap: 5px;
   margin-top: 20px;
+  border-radius: 15%;
 }
 
 .carousel .list .item .content button {
@@ -126,8 +131,8 @@ body {
 /* arrows */
 .arrows {
   position: absolute;
-  top: 80%;
-  right: 52%;
+  top: 90%;
+  right: 29%;
   z-index: 100;
   width: 300px;
   max-width: 30%;
@@ -139,9 +144,9 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #eee4;
+  background-color: rgba(238, 236, 236, 0.925);
   border: none;
-  color: #fff;
+  color: #000000;
   font-family: monospace;
   font-weight: bold;
   transition: 0.5s;
@@ -160,7 +165,6 @@ body {
 
 .carousel .list .item:nth-child(1) .content .author,
 .carousel .list .item:nth-child(1) .content .title,
-.carousel .list .item:nth-child(1) .content .topic,
 .carousel .list .item:nth-child(1) .content .des,
 .carousel .list .item:nth-child(1) .content .buttons {
   transform: translateY(50px);
@@ -177,9 +181,6 @@ body {
 }
 .carousel .list .item:nth-child(1) .content .title {
   animation-delay: 1.2s !important;
-}
-.carousel .list .item:nth-child(1) .content .topic {
-  animation-delay: 1.4s !important;
 }
 .carousel .list .item:nth-child(1) .content .des {
   animation-delay: 1.6s !important;
@@ -288,7 +289,6 @@ body {
 }
 .carousel.prev .list .item:nth-child(2) .content .author,
 .carousel.prev .list .item:nth-child(2) .content .title,
-.carousel.prev .list .item:nth-child(2) .content .topic,
 .carousel.prev .list .item:nth-child(2) .content .des,
 .carousel.prev .list .item:nth-child(2) .content .buttons {
   animation: contentOut 1.5s linear 1 forwards !important;

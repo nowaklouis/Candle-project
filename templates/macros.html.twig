@@ -1,0 +1,23 @@
+{% macro item(image, alt, title, author) %}
+    <div class="item">
+        <img src="{{ asset('images/' ~ image) }}" alt="{{ alt }}">
+        <div class="content">
+            <div class="author">{{ author }}</div>
+            <div class="title">{{ title }}</div>
+            <div class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quod delectus excepturi, recusandae voluptas molestiae quis nihil harum tenetur. Voluptates ratione reprehenderit unde magni nesciunt ipsa libero repellat, veritatis</div>
+            <div class="buttons">
+                <button class="rounded">Voir Plus</button>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro thumbnail(image, alt, title) %}
+    <div class="item">
+        <img src="{{ asset('images/' ~ image) }}" alt="{{ alt}}">
+        <div class="content">
+            <div class="title">{{ title }}</div>
+            <div class="des">Description</div>
+        </div>
+    </div>
+{% endmacro %}
