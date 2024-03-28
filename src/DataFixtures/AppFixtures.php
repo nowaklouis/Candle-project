@@ -75,6 +75,7 @@ class AppFixtures extends Fixture
                     ->setPrice($faker->numberBetween(6, 55))
                     ->setDescription($faker->paragraphs(5, true))
                     ->setCategory($category)
+                    ->setColor($faker->randomElement(["vert", "rouge", "bleu", "orange", "jaune", "mauve", "blanc", "marron"]))
                     ->setStock($faker->numberBetween(6, 12))
                     ->setSize($faker->numberBetween(6, 25) . " cm")
                     ->setInShop($faker->randomElement([true, false]))

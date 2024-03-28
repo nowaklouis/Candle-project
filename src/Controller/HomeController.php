@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -16,15 +18,17 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        $products = $this->entity->getRepository(Product::class)->findAll();
-
-        $sliderItems = $this->entity->getRepository(Product::class)->lastThree();
+        $data = $this->entity->getRepository(Product::class)->findAll();
+        $products = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            8
+        );
 
         return $this->render('home/index.html.twig', [
-            'products' => $products,
-            'sliderItems' => $sliderItems,
+            'products' => $products
         ]);
     }
 }

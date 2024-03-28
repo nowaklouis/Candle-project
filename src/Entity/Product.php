@@ -53,6 +53,9 @@ class Product
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $productAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $color = null;
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
@@ -222,6 +225,18 @@ class Product
     public function setProductAt(\DateTimeInterface $productAt): static
     {
         $this->productAt = $productAt;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): static
+    {
+        $this->color = $color;
 
         return $this;
     }
