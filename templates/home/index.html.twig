@@ -38,17 +38,21 @@
 
     <div class="row">
         {% for product in products %}
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 400px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ asset('images/' ~ product.file ) }}" class="img-fluid rounded-start" alt="Product Image">
+                        <img src="{{ asset('images/' ~ product.file ) }}" class="rounded-start" alt="Product Image" style="width: 120%;">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text"><small class="text-body-secondary">Taille: {{ product.size }}</small> Crée le : {{ product.productAt|date("d/m/Y")}}</p>
-                            <p class="card-text">Prix: {{ product.price }} €</p>
-                            faire une methde pour avoir le nombre de produit en stock et en vente dans le repository
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="price-style">{{ product.price }} €</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Crée le : {{ product.productAt|date("d/m/Y")}}</li>
+                                <li class="list-group-item">Stock: {{ product.stock }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
