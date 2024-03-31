@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Présentation de Candle-Project{% endblock %}
+
+{% block body %}
+<!-- Header Section -->
+<header class="header-section">
+    <div class="container">
+        <h1 class="text-center">Bienvenue chez Nous !</h1>
+        <p class="lead text-center">Nous sommes passionnés par la création de bougies uniques et originales.</p>
+    </div>
+</header>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>A propos de nous</h2>
+                <p>Nous sommes une entreprise dédiée à la création de bougies artisanales haut de gamme. Notre équipe de passionnés met tout en œuvre pour vous offrir des bougies uniques, parfumées et esthétiquement magnifiques.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ asset('images/candle-method.jpg') }}" alt="À propos de nous" style="width: 20rem">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section">
+    <div class="container">
+        <h2>Nos Valeurs</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Qualité</h3>
+                <p>Nous nous engageons à n'utiliser que des ingrédients de la plus haute qualité pour créer nos bougies, afin de garantir une expérience exceptionnelle à nos clients.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Créativité</h3>
+                <p>La créativité est au cœur de notre entreprise. Nous nous efforçons de concevoir des bougies uniques et innovantes qui captivent nos clients.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Durabilité</h3>
+                <p>Nous sommes soucieux de l'environnement. C'est pourquoi nous nous engageons à utiliser des matériaux durables et à minimiser notre impact sur la planète.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2>Nous Contacter</h2>
+        <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter :</p>
+        <ul>
+            <li>Email: contact@votreentreprise.com</li>
+            <li>Téléphone: +123456789</li>
+            <li>Adresse: [Votre adresse]</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
