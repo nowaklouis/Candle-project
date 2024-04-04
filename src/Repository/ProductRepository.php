@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -46,11 +47,30 @@ class ProductRepository extends ServiceEntityRepository
     //        ;
     //    }
 
+    public function findAllInShop()
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.inShop = true')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     public function lastThree()
     {
         return $this->createQueryBuilder('p')
             ->orderBy('p.id', 'DESC')
             ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllByCategory(Category $category)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.category = :category')
+            ->andWhere('p.inShop = true')
+            ->setParameter('category', $category)
             ->getQuery()
             ->getResult();
     }

@@ -37,6 +37,36 @@
 <div class="container pt-4">
 
     <div class="row">
+    <h2>Nos Derniers Articles par categorie</h2>
+        {% for category in categorys %}
+            {% set lastProduct = category.products|last %}
+            <a href="{{ path('candle_category', {'slug': category.slug})}}" class="text-decoration-none">
+                <div class="card mb-3" style="max-width: 400px;">
+                    <h3>{{ category.name }}</h3>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ asset('images/' ~ lastProduct.file ) }}" class="rounded-start" alt="Product Image" style="width: 120%;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">{{ lastProduct.name }}</h5>
+                                    <p class="price-style">{{ lastProduct.price }} €</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Crée le : {{ lastProduct.productAt|date("d/m/Y")}}</li>
+                                    <li class="list-group-item">Stock: {{ lastProduct.stock }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+    <h2>Tous nos Articles</h2>
         {% for product in products %}
             <div class="card mb-3" style="max-width: 400px;">
                 <div class="row g-0">
