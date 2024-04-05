@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <h2>Nôtre produit en détail</h2>
+            <div class="card mb-3" style="max-width: 400px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ asset('images/' ~ product.file ) }}" class="rounded-start" alt="Product Image" style="width: 120%;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="price-style">{{ product.price }} €</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Crée le : {{ product.productAt|date("d/m/Y")}}</li>
+                                <li class="list-group-item">Stock: {{ product.stock }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
