@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use DateTime;
 use Doctrine\Common\EventSubscriber as AsDoctrineListener;
@@ -30,6 +31,10 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity = $event->getEntityInstance();
 
         if (!($entity instanceof Product)) {
+            return;
+        }
+
+        if (!($entity instanceof Category)) {
             return;
         }
 
