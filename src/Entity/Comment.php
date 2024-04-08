@@ -31,6 +31,9 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
 
+    #[ORM\Column]
+    private ?bool $isVerified = null;
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
@@ -97,6 +100,18 @@ class Comment
     public function setProduct(?product $product): static
     {
         $this->product = $product;
+
+        return $this;
+    }
+
+    public function isIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

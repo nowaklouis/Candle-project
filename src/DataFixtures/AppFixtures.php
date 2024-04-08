@@ -101,7 +101,8 @@ class AppFixtures extends Fixture
                     $comment->setTitle($faker->words(3, true))
                         ->setContent($faker->paragraphs(3, true))
                         ->setUserComment($admin)
-                        ->setProduct($product);
+                        ->setProduct($product)
+                        ->setIsVerified(false);
 
                     $manager->persist($comment);
                 }
