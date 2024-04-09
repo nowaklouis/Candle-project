@@ -1,32 +1,15 @@
 body {
-  height: 100%;
   margin: 0;
-  overflow-x: hidden;
-  background-size: cover;
-  background-attachment: fixed;
-  background-image: linear-gradient(
-    to right top,
-    #f7d4e8,
-    #f6ddf0,
-    #f6e5f5,
-    #f7edfa,
-    #f9f5fd,
-    #f9f5fe,
-    #faf5fe,
-    #faf5ff,
-    #f9edff,
-    #fae4ff,
-    #fcdbfd,
-    #ffd1f9
-  );
 }
 
-.navbar {
-  opacity: 0.8; /* Réduire l'opacité de la navbar */
+.nav-connect {
+  background-color: rgb(255, 172, 172);
+  color: white;
 }
 
-.navbar * {
-  opacity: 1; /* Annuler l'opacité pour les éléments internes */
+.nav-connect:hover {
+  background-color: rgb(255, 140, 140);
+  color: white;
 }
 
 .carousel {
@@ -229,18 +212,6 @@ body {
   from {
     transform: translateX(150px);
   }
-}
-
-/* running time */
-
-.carousel .time {
-  position: absolute;
-  z-index: 1000;
-  width: 0%;
-  height: 3px;
-  background-color: #f1683a;
-  left: 0;
-  top: 0;
 }
 
 .carousel.next .time,
