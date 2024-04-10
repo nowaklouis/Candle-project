@@ -1,5 +1,5 @@
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary shadow">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="/">
         <img src="{{ asset('images/Candle-Project-logo.jpg' ) }}" class="rounded" alt="logo" style="width: 8rem;">
     </a>
@@ -32,7 +32,18 @@
         </li>
       </ul>
     </div>
-    <a class="nav-connect btn" href="{{path("app_login")}}" >Connexion</a>
+    {% if app.user %}
+    <div>
+      <a href={{path("home")}} class="nav-connect btn">Compte</a>
+      <a href={{path("app_logout")}} class="btn btn-outline-config">Deconnexion</a>
+    </div>
+    {% else %}
+        {% if app.request.attributes.get('_route') == 'app_login' %}
+          <a href={{path("app_register")}} class="btn btn-outline-config">S'inscrire</a>
+        {% else %}
+          <a href={{path("app_login")}} class="nav-connect btn">Connexion</a>
+        {% endif %}
+    {% endif %}
   </div>
 </nav>
 

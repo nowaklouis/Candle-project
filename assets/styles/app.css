@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .nav-connect {
@@ -10,6 +11,17 @@ body {
 .nav-connect:hover {
   background-color: rgb(255, 140, 140);
   color: white;
+}
+
+.btn-outline-config {
+  color: rgb(255, 140, 140);
+  border-color: rgb(255, 140, 140);
+}
+
+.btn-outline-config:hover {
+  color: #fff;
+  background-color: rgb(255, 140, 140);
+  border-color: rgb(255, 140, 140);
 }
 
 .carousel {
@@ -87,8 +99,8 @@ body {
 }
 
 .thumbnail .item {
-  width: 150px;
-  height: 220px;
+  width: 130px;
+  height: 180px;
   flex-shrink: 0;
   position: relative;
 }
